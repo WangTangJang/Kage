@@ -1,15 +1,14 @@
-import time
-import pygame
 import sys
-from gameInit import *
+import time
 
+import pygame
+from gameInit import *
 
 class Game:
     def __init__(self, screen_width, screen_height, caption):
         # 初始化游戏的各项数据
         self.gameInit = GameInit(screen_width, screen_height, caption)
         self.clock = pygame.time.Clock()
-
     def run(self):
         FPS = 60
         while True:
@@ -36,6 +35,7 @@ class Game:
     def update(self, FPS):
         self.gameInit.player.update(FPS)
         self.gameInit.enemy.update(FPS)
+
     def turn(self):
         # 如果是敌人的回合
         if self.gameInit.current_player == self.gameInit.enemy:
@@ -46,6 +46,7 @@ class Game:
             self.gameInit.current_player = self.gameInit.player  # 轮到玩家行动
             self.gameInit.player.current_mp = 5  # 回复MP
             self.gameInit.battleInfo.add_battle_info(enemy_text)  # 增加战斗信息
+
     def draw(self):
         # 加载背景
         self.gameInit.background.draw()
@@ -65,7 +66,6 @@ class Game:
         # 按钮绘制
         self.gameInit.playCardButton.draw()
         self.gameInit.skip_button.draw()
-        
 if __name__ == "__main__":
     game = Game(1100, 600, "My Pygame Window")
     game.run()
