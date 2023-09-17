@@ -1,0 +1,8 @@
+{
+    "python.formatting.provider": "black",
+    "code-runner.executorMap": {
+        "python": "python -u",
+    },
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.runInTerminal": true,
+}
